@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tilemap/basic_ground.tres" type="TileSet" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 235, 10 )
+
+[sub_resource type="Environment" id=2]
+glow_enabled = true
+glow_intensity = 8.0
+glow_strength = 2.0
+glow_hdr_scale = 1.0
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 219, 127 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 326, 257 )
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 327684, 1, 0, 327685, 2, 0, 327686, 2, 0, 327687, 2, 0, 327688, 2, 0, 327689, 2, 0, 327690, 536870913, 0, 327692, 1, 0, 327693, 2, 0, 327694, 536870913, 0, 393220, 536870915, 0, 393221, 536870915, 0, 393222, 536870915, 0, 393223, 536870915, 0, 393224, 536870915, 0, 393225, 536870915, 0, 393226, 536870915, 0, 393228, 1073741825, 0, 393229, 1073741826, 0, 393230, 1610612737, 0, 458756, 536870915, 0, 458757, 536870915, 0, 458758, 536870915, 0, 458759, 536870915, 0, 458760, 536870915, 0, 458761, 536870915, 0, 458762, 536870915, 0, 524292, 536870915, 0, 524293, 536870915, 0, 524294, 536870915, 0, 524295, 536870915, 0, 524296, 536870915, 0, 524297, 536870915, 0, 524298, 536870915, 0, 589828, 1073741825, 0, 589829, 1073741826, 0, 589830, 1073741826, 0, 589831, 1073741826, 0, 589832, 1073741826, 0, 589833, 1073741826, 0, 589834, 1610612737, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
